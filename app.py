@@ -225,6 +225,7 @@ div[data-testid="stFileUploader"]:hover {
 # ─────────────────────────────────────────────
 # CONFIGURATION
 # ─────────────────────────────────────────────
+MODEL_URL  = "https://huggingface.co/omer-khan/Facial-expression-detector/resolve/main/my_model.pth"
 MODEL_PATH = "my_model.pth"
 
 EXPRESSION_CLASSES = ["Angry","Disgust","Fear","Happy","Neutral","Sad","Surprise"]
@@ -254,6 +255,13 @@ UPSCALE_FACTOR      = 2.0
 @st.cache_resource
 def load_model():
     device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    # Download model from Hugging Face if not found locally
+    if not os.path.exists(MODEL_PATH):
+        with st.spinner("⬇️ Downloading model from Hugging Face (34MB) — only happens once..."):
+            import urllib.request
+            urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
+
     m = torch.load(MODEL_PATH, map_location=device, weights_only=False)
     m.to(device); m.eval()
     return m, device
@@ -327,7 +335,7 @@ def draw_box(frame_bgr, x1, y1, x2, y2, label, conf):
 st.markdown("""
 <div class="hero">
     <div class="hero-title">🧠 Expression Detector</div>
-    <div class="hero-sub">AI-Powered Facial Emotion Recognition</div>
+    <div class="hero-sub">AI-Powered Facial Emotion Recognition • EfficientNet-B2 + MTCNN</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -617,7 +625,6 @@ with tab2:
 # ─────────────────────────────────────────────
 st.markdown("""
 <div style="text-align:center;padding:40px 0 20px 0;color:#334155;font-size:0.8rem">
-    | Powered By Omer Khan Bangash |
-    
+    Built with EfficientNet-B2 + MTCNN + Streamlit &nbsp;•&nbsp; UET Peshawar Internship Project
 </div>
 """, unsafe_allow_html=True)
