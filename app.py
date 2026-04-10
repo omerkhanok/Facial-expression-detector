@@ -225,7 +225,7 @@ div[data-testid="stFileUploader"]:hover {
 # ─────────────────────────────────────────────
 # CONFIGURATION
 # ─────────────────────────────────────────────
-MODEL_URL  = "https://huggingface.co/omer-khan/Facial-expression-detector/resolve/main/my_model.pth"
+MODEL_URL  = "https://huggingface.co/omer-khan/Facial-expression-detector-system/resolve/main/my_model.pth"
 MODEL_PATH = "my_model.pth"
 
 EXPRESSION_CLASSES = ["Angry","Disgust","Fear","Happy","Neutral","Sad","Surprise"]
