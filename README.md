@@ -132,6 +132,7 @@ Open **http://localhost:8501** in your browser.
 
 - Webcam detection is slow on cloud deployment due to network latency — best used locally
 - Works best with **frontal, well-lit faces**
+- Get confused in fear and sad due two similar many features
 - Small or far-away faces (e.g. CCTV footage) may have lower accuracy
 
 ---
@@ -141,7 +142,7 @@ Open **http://localhost:8501** in your browser.
 **Omer Khan**
 - 🌐 Live App: [facial-expression-detector-omerkhan.streamlit.app](https://facial-expression-detector-omerkhan.streamlit.app)
 - 🤗 Model: [Hugging Face](https://huggingface.co/omer-khan/Facial-expression-detector-system)
-- 💻 GitHub: [@omer-khan](https://github.com/omer-khan)
+- 💻 GitHub: [@omerkhanok](https://github.com/omerkhanok)
 
 ---
 
